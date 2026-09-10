@@ -1,0 +1,1 @@
+{"scripts":{"start":"ng serve --host 0.0.0.0","build":"ng build"},"dependencies":{"@angular/core":"latest","@angular/common":"latest","@angular/platform-browser":"latest","rxjs":"latest","typescript":"latest","@angular/cli":"latest"}}

@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:15
+    environment: {POSTGRES_DB: taxi, POSTGRES_USER: postgres, POSTGRES_PASSWORD: postgres}
+    ports: ["5433:5432"]
+    volumes: ["./db/init.sql:/docker-entrypoint-initdb.d/01-init.sql"]
+  api:
+    build: ./api
+    environment: [SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/taxi, SPRING_DATASOURCE_USERNAME=postgres, SPRING_DATASOURCE_PASSWORD=postgres]
+    depends_on: [postgres]
+    ports: ["8090:8090"]
+  dashboard:
+    build: ./dashboard
+    depends_on: [api]
+    ports: ["4200:80"]

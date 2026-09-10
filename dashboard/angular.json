@@ -1,0 +1,1 @@
+{"$schema":"https://json.schemastore.org/angular.json","version":1,"projects":{"dashboard":{"projectType":"application","root":"","sourceRoot":"src","architect":{"build":{"builder":"@angular-devkit/build-angular:application","options":{"outputPath":"dist/dashboard","index":"src/index.html","browser":"src/main.ts"}}}}}}
