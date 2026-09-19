@@ -1,0 +1,4 @@
+import {bootstrapApplication} from '@angular/platform-browser'; import {Component} from '@angular/core'; import {HttpClientModule,HttpClient} from '@angular/common/http';
+@Component({selector:'app-root',standalone:true,imports:[HttpClientModule],template:`<main><h1>NYC Taxi BI</h1><button (click)="load()">Refresh reports</button><div *ngFor="let x of rows">{{x.day}} — {{x.trips}} trips — ${{x.avg_fare}}</div></main>`})
+class App{rows:any[]=[];constructor(private http:HttpClient){} load(){this.http.get<any[]>('http://localhost:8090/api/reports/daily').subscribe(x=>this.rows=x)}}
+bootstrapApplication(App);
